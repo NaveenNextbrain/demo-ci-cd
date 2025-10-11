@@ -1,0 +1,14 @@
+{
+  "name": "demo-ci-cd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js",
+    "build": "mkdir -p build && echo 'Build Successful!' > build/output.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
