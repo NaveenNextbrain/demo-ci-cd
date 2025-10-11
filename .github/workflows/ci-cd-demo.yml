@@ -9,6 +9,7 @@ on:
 jobs:
   ci-cd:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -16,10 +17,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 18
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run tests
         run: npm test
@@ -31,4 +32,41 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: demo-build
-          path: build/
+          path: build
+
+
+
+# name: Demo CI/CD Pipeline
+
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+
+# jobs:
+#   ci-cd:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '18'
+
+#       - name: Install dependencies
+#         run: npm ci
+
+#       - name: Run tests
+#         run: npm test
+
+#       - name: Build project
+#         run: npm run build
+
+#       - name: Upload build artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: demo-build
+#           path: build/
